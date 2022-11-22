@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="USB_Drive_Storage.Views.UsbDriveInfoPage"
+             xmlns:local="clr-namespace:USB_Drive_Storage.Models">
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView x:Name="driveDetailsListView"
+                            ItemsSource="{Binding DriveInfo}"
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:UsbDriveModel">
+                        <StackLayout>
+                            <Label Text="{Binding Name}"/>
+                            <Label Text="{Binding DeviceId}"/>
+                            <Label Text="{Binding ConfigurationCount}"/>
+                            <Label Text="{Binding InterfaceCount}"/>
+                            <Label Text="{Binding EndPointCount}"/>
+                        </StackLayout>                        
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>                
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
